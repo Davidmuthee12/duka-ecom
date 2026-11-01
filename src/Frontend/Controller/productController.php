@@ -22,4 +22,22 @@ class ProductController extends AbstractController {
             'product' => $product
         ]);
     }
+
+    public function details(string $slug) {
+        if ($slug === '') {
+            $this->error404();
+            return;
+        }
+
+        $product = $this->productRepository->fetchBySlug($slug);
+
+        if (empty($product)) {
+            $this->error404();
+            return;
+        }
+
+        $this->render('pages/details', [
+            'product' => $product
+        ]);
+    }
 }

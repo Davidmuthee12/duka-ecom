@@ -45,6 +45,12 @@ if ($route === 'products') {
     $productController = $container->get('productController');
     $productController->showProducts($product);
 }
+else if ($route === 'products/details') {
+    $product = @(string) ($_GET['product'] ?? '');
+    
+    $productController = $container->get('productController');
+    $productController->details($product);
+}
 else {
     $notFoundController = $container->get('notFoundController');
     $notFoundController->error404();

@@ -17,7 +17,7 @@
         </nav>
     </header>
     <main>
-        <?php echo $products; ?>
+        <?php echo $contents; ?>
     </main>
     <footer>
         <p></p>

@@ -17,9 +17,9 @@ class ProductRepository {
         return $entries;
     }
 
-    public function fetchByName(string $name): ?ProductModel {
-        $stmt = $this->pdo->prepare('SELECT * FROM `products` WHERE `name` = :name');
-        $stmt->bindValue(':name',$name);
+    public function fetchBySlug(string $slug): ?ProductModel {
+        $stmt = $this->pdo->prepare('SELECT * FROM `products` WHERE `slug` = :slug');
+        $stmt->bindValue(':slug',$slug);
         $stmt->execute();
         $stmt->setFetchMode(PDO::FETCH_CLASS, ProductModel::class);
         $entry = $stmt->fetch();
