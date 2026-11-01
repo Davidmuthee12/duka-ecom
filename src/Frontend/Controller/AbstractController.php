@@ -2,10 +2,10 @@
 
 namespace App\Frontend\Controller;
 
-use App\Repository\PagesRepository;
+use App\Repository\ProductRepository;
 
 abstract class AbstractController {
-    public function __construct(protected PagesRepository $pagesRepository) {}
+    public function __construct(protected ProductRepository $productRepository) {}
 
     protected function render($view, $params) {
         extract($params);
@@ -13,8 +13,6 @@ abstract class AbstractController {
         ob_start();
         require __DIR__ . '/../../../views/frontend/' . $view . '.view.php';
         $contents = ob_get_clean();
-
-        $navigation = $this->pagesRepository->fetchForNavigation();
 
         require __DIR__ . '/../../../views/frontend/layouts/main.view.php';
     }

@@ -28,12 +28,12 @@ if ($dbPassword === false) {
 }
 
 try {
-    $pdo = new PDO('mysql:host=localhost;dbname=cms;charset=utf8mb4', 'cms', $dbPassword, [
+    $pdo = new PDO('mysql:host=localhost;dbname=duka;charset=utf8mb4', 'duka', $dbPassword, [
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
     ]);
 }
 catch (PDOException $e) {
-    echo "An error occured while connectin to the database";
+    echo "An error occured while connecting to the database";
     die();
 }
 
