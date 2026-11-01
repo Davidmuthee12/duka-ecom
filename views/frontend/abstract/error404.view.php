@@ -1,0 +1,1 @@
+<h1>Error 404, error404.view.php</h1>
